@@ -24,26 +24,25 @@ print("button = " + str(data['option']))
 print("slider 1 = " + str(data['slider1']))
 
 
-
+#start with leds off
 pwm1 = GPIO.PWM(green, 100) # PWM object on our pin at 100 Hz
 pwm1.start(0) # start with LED off
-while True:
-  with open("lab4.txt", 'r') as f:
-    dutyCycle = float(f.read()) # read duty cycle value from file
-  pwm1.ChangeDutyCycle(dutyCycle)
-  time.sleep(0.1)
 pwm2 = GPIO.PWM(yellow, 100) # PWM object on our pin at 100 Hz
 pwm2.start(0) # start with LED off
-while True:
-  with open("lab4.txt", 'r') as f:
-    dutyCycle = float(f.read()) # read duty cycle value from file
-  pwm2.ChangeDutyCycle(dutyCycle)
-  time.sleep(0.1)
 pwm3 = GPIO.PWM(red, 100) # PWM object on our pin at 100 Hz
 pwm3.start(0) # start with LED off
+
 while True:
   with open("lab4.txt", 'r') as f:
     dutyCycle = float(f.read()) # read duty cycle value from file
-  pwm3.ChangeDutyCycle(dutyCycle)
-  time.sleep(0.1)
+  if ('option' == 1):
+    pwm1.ChangeDutyCycle(dutyCycle)
+    time.sleep(0.1)
+  elif ('option' == 2):
+    pwm2.ChangeDutyCycle(dutyCycle)
+    time.sleep(0.1)
+  elif ('option' == 3):
+    pwm3.ChangeDutyCycle(dutyCycle)
+    time.sleep(0.1)
+
 
