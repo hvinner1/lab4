@@ -14,7 +14,7 @@ with open('lab4.txt', 'w') as f:
 print('Content-type: text/html\n\n')
 print('''
 <html>
-<form action="/cgi-bin/lab4.py" method="POST">
+<form action="/cgi-bin/cgi4.py" method="POST">
   <input type="radio" name="option" value="1" checked> LED 1 <br>
   <input type="radio" name="option" value="2"> LED 2 <br>
   <input type="radio" name="option" value="3"> LED 3 <br>
